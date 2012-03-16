@@ -19,6 +19,5 @@ loadScript "#{basePath}/head.load.min.js", ()->
 		$("body").append("<iframe src=\"#{window.location.toString()}\"></iframe>")
 		$("iframe").on "load", ()->
 			console.log($(this).contents().find(".zz1_QuickLaunchMenuMaterias0_8")) #Works!
-	
 
 

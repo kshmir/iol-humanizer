@@ -9,3 +9,4 @@ IOL.Utils.load = ()->
     $target = $($item.attr("href"))
     e.preventDefault()
     $target.toggleClass("hidden")
+    

@@ -1,4 +1,7 @@
-IOL.Subjects = {}
+window.IOL = {} unless window.IOL
+IOL = window.IOL
+
+IOL.Subjects = {} unless IOL.Subjects
 
 IOL.Subjects.load = ()->
 

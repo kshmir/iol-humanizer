@@ -3,6 +3,7 @@ window.IOL.Utils = {}
 
 IOL = window.IOL
 
+
 IOL.Utils.load = ()->
   $("body").on "click", ".collapser", (e)->
     $item = $(this)

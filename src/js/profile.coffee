@@ -1,4 +1,7 @@
-IOL.Profile = {}
+window.IOL = {} unless window.IOL
+IOL = window.IOL
+
+IOL.Profile = {} unless IOL.Profile
 
 IOL.Profile.load = ()->
   # Router Implementation

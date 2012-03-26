@@ -1,8 +1,6 @@
 window.IOL = {} unless window.IOL
 
-
-
-IOL.loaded = ()->
+window.IOL.loaded = ()->
   $("html").fadeIn 500
   IOL.Utils.load()
   IOL.Subjects.load()

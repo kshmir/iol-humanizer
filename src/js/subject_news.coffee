@@ -1,3 +1,8 @@
+window.IOL = {} unless window.IOL
+IOL = window.IOL
+
+IOL.Subjects = {} unless IOL.Subjects
+
 IOL.Subjects.News = {}
 
 IOL.Subjects.News.load = ()->

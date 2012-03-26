@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    %link{ href: "#{path}/bootstrap/css/bootstrap.css", rel: "stylesheet" }
+    %link{ href: "#{path}/bootstrap/css/bootstrap-responsive.css", rel: "stylesheet" }
+    %link{ href: "#{path}/style.css", rel: "stylesheet" }
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container.nav-collapse 
+          %a.brand{ href: "#"} IOL para Humanos
+    .container#main
+      %section
+        .row
+          .span4.profileView.loading
+          .span8.subjectView.loading
+:script
+  IOL.loaded()

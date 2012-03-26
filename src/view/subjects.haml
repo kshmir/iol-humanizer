@@ -1,0 +1,14 @@
+%h2 Mis Materias
+
+%hr.soft
+
+.accordion#subjectsAccordion
+  :each subject in subjects
+    .accordion-group
+      .accordion-heading
+        %a.accordion-toggle.collapser{href: "#collapse#{subject.get('escapedId')}" } = subject.get("name")
+      .subjectData.accordion-body.hidden{ id: "collapse#{subject.get('escapedId')}", data-subjectid: "#{subject.id}" }
+        %h6 Noticias  
+        %table.table.loading.newsList
+        %h6 Material Didactico
+        %table.table.loading.filesList

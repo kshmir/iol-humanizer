@@ -1,5 +1,6 @@
 window.IOL = {} unless window.IOL
 window.IOL.Utils = {}
+
 IOL = window.IOL
 
 IOL.Utils.load = ()->

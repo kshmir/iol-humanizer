@@ -1,0 +1,1 @@
+window.datalistView = Haml(Base64.decode('OmVhY2ggaXRlbSBpbiBpdGVtcwogICV0cgogICAgJXRkCiAgICAgID0gaXRlbS50ZXh0CiAgICAldGQuYWN0aW9uCiAgICAgICVhLmJ0bi5idG4tbWluaXsgaHJlZjogaXRlbS5ocmVmLCB0YXJnZXQ6IGl0ZW0udGFyZ2V0IHx8ICJfYmxhbmsiIH0gVmVy'));

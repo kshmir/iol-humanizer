@@ -2,7 +2,7 @@ require "base64"
 
 guard 'shell' do
   watch(/.*\.js/) do |m|
-    `cp #{m} bin/`
+    `cp #{m} bin/views`
   end
   watch(/.*\.haml/) do |m|
   	dump = Base64.strict_encode64 `cat #{m.to_s}`

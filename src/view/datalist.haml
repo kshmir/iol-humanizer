@@ -1,0 +1,6 @@
+:each item in items
+  %tr
+    %td
+      = item.text
+    %td.action
+      %a.btn.btn-mini{ href: item.href, target: item.target || "_blank" } Ver

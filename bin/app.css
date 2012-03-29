@@ -4699,6 +4699,12 @@ a.accordion-toggle {
 #subjectsAccordion .subjectData {
   padding: 0 15px; }
 
+.backtoiol, .backtoiol:hover, .backtoiol:visited {
+  color: white;
+  font-size: 14px;
+  margin-top: 11px;
+  font-weight: bold; }
+
 td.item-name {
   width: 80%; }
 

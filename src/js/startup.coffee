@@ -1,21 +1,20 @@
 window.IOL = {} unless window.IOL
 
-loadHaml = (options, callback) ->
-  js = document.createElement "script"
-  js.type = "text/javascript"
-  js.src = options.src
-  js.id = options.id
-  js.onload = callback
-  js.onreadystatechange = ()->
-    callback() if this.readyState == "complete"
-  document.getElementsByTagName('head')[0].appendChild(js);
+IOL = window.IOL
 
-basePath = window.baseLocation
+IOL.basePath = window.baseLocation
 
-head.js "#{basePath}/views/index.haml.js",
-        "#{basePath}/views/subjects.haml.js",
-        "#{basePath}/views/myprofile.haml.js",
-        "#{basePath}/views/datalist.haml.js", ()->
-            rendered = window.indexView {path: basePath}
-            document.write rendered
-            $("html").hide()
+unless IOL.isLoaded
+  head.js "#{IOL.basePath}/views/index.haml.js",
+          "#{IOL.basePath}/views/subjects.haml.js",
+          "#{IOL.basePath}/views/myprofile.haml.js",
+          "#{IOL.basePath}/views/datalist.haml.js", ()->
+              rendered = window.indexView {path: IOL.basePath}
+              document.write rendered
+              $("html").hide()
+              loader = ()->
+                window.IOL.loaded()
+              setTimeout loader, 1000
+else 
+  alert "IOL-Humanizer ya está cargado!"
+  

@@ -17,13 +17,11 @@ IOL.Subjects.load = ()->
       this.$el.addClass "span8"
       IOL.Subjects.items.fetch 
         success: (collection, response)->
-          console.log collection if console
           self.$el.removeClass "loading"
           self.$el.html(window.subjectsView({subjects: collection}))
           $(".subjectView").replaceWith self.$el
           self.loadFiles()
           self.loadNews()
-
     loadFiles: ()->
       self = this
       _.each IOL.Subjects.items.models, (item)->
@@ -34,7 +32,9 @@ IOL.Subjects.load = ()->
             collectionUrls = _.map collection, (file)->
               href: file.get "file_url"
               text: file.get "name"
-            rendered = window.datalistView({items: collectionUrls})
+            rendered = window.datalistView 
+              items: collectionUrls
+              empty_message: "No se encontraron archivos"
             $(".subjectData[data-subjectid=\"#{item.id}\"] .filesList").html(rendered).removeClass "loading"
           subject: item
     loadNews: ()->
@@ -48,7 +48,9 @@ IOL.Subjects.load = ()->
               href: "#/subjects/#{item.id}/news/#{news.id}/"
               text: news.get "title"
               target: "_self"
-            rendered = window.datalistView({items: collectionUrls})
+            rendered = window.datalistView 
+              items: collectionUrls
+              empty_message: "No se encontraron noticias"
             $(".subjectData[data-subjectid=\"#{item.id}\"] .newsList").html(rendered).removeClass "loading"
           subject: item
 
@@ -74,18 +76,27 @@ IOL.Subjects.load = ()->
         escapedId = id.replace(/\./,"")
         name = $item.text()
         new IOL.Subjects.Model {id: id, name: name, escapedId : escapedId, files: []}
-
       this.models = returner
       this.length = this.models.length
+      $.jStorage.set "subjects", returner
+      $.jStorage.setTTL "subjects", 604800000 # A week before expiring
+
       returner
 
     fetch: (options)->
       self = this
-      $.ajax
-        url: self.url
-        success: (data)-> options.success(self.parse(data), data)
-        error: (data)-> options.error(data)
-
+      unless $.jStorage.get "subjects"
+        $.ajax
+          url: self.url
+          success: (data)-> options.success(self.parse(data), data)
+          error: (data)-> options.error(data)
+      else 
+        models = $.jStorage.get "subjects"
+        models = _.map models, (item)->
+            new IOL.Subjects.Model {id: item.id, name: item.name, escapedId : item.escapedId}
+        this.models = models
+        this.length = this.models.length
+        options.success(models)
 
   IOL.Subjects.items = new IOL.Subjects.Collection()
 

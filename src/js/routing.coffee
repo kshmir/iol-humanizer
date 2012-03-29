@@ -8,6 +8,7 @@ IOL.DefaultRouter =  Backbone.Router.extend
       "/" : "index"
     index: ()->
       $(".modal").modal("hide")
+      
 
 IOL.baseRouting = ()->
 

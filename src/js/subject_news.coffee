@@ -16,8 +16,6 @@ IOL.Subjects.News.load = ()->
         news = _.find news_, (n)-> news_id == n.id
         $("#newsModal .modal-body").html(news.get("content"))
         $("#newsModal .modal-title").html(news.get("title"))
-        $("#newsModal .js-close-modal").on "click", ()->
-          $("#newsModal").modal "hide"
         $("#newsModal").modal 
           keyboard: true
           backdrop: true  

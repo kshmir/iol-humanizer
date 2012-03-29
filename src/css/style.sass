@@ -1,6 +1,6 @@
 @mixin loader($minHeight)
   background: url("../assets/img/loading.gif") center center no-repeat
-  min-height: $minHeight
+  height: $minHeight
 
 #main
   margin-top: 60px
@@ -11,8 +11,8 @@
 .row > .loading
   @include loader(400px)
   
-ul.datalist.loading
-  @include loader(80px)
+table.loading
+  @include loader(100px)
 
 hr.soft
   margin: 10px 0
@@ -27,6 +27,9 @@ a.accordion-toggle
 .table.newsList td.action .btn, 
 .table.filesList td.action .btn
   float:right
+
+td.item-name 
+  width: 80%
 
 ul.linklist a
   text-transform: uppercase

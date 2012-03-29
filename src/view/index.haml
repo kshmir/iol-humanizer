@@ -1,18 +1,30 @@
+/ HTML5 ftw
 !!!
 %html
   %head
-    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
-    %link{ href: "#{path}/app.css", rel: "stylesheet", type: "text/css" }
+    / Responsiveness
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    / CSS
+    %link{ href: "#{path}/app.css", rel: "stylesheet" }
   %body
+    / Navbar
     .navbar.navbar-fixed-top
       .navbar-inner
         .container.nav-collapse 
           %a.brand{ href: "#"} IOL para Humanos
+
+    / Main container
     .container#main
       %section
         .row
           .span4.profileView.loading
           .span8.subjectView.loading
 
-:script
-  IOL.loaded()
+    / Modal para noticias
+    .modal.fade#newsModal
+      .modal-header
+        .close{ data-dissmiss:"modal" }
+        %h3.modal-title
+      .modal-body
+      .modal-footer
+        %a.btn.btn-primary.js-close-modal{ href: "#" } Cerrar

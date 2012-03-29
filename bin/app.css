@@ -4684,11 +4684,11 @@ a.thumbnail:hover {
 
 .row > .loading {
   background: url("../assets/img/loading.gif") center center no-repeat;
-  min-height: 400px; }
+  height: 400px; }
 
-ul.datalist.loading {
+table.loading {
   background: url("../assets/img/loading.gif") center center no-repeat;
-  min-height: 80px; }
+  height: 100px; }
 
 hr.soft {
   margin: 10px 0; }
@@ -4698,6 +4698,9 @@ a.accordion-toggle {
 
 #subjectsAccordion .subjectData {
   padding: 0 15px; }
+
+td.item-name {
+  width: 80%; }
 
 ul.linklist a {
   text-transform: uppercase;

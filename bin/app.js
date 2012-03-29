@@ -474,9 +474,6 @@ document.getElementsByTagName("head")[0].appendChild(d);d.load("jStorage");a="{}
         });
         $("#newsModal .modal-body").html(news.get("content"));
         $("#newsModal .modal-title").html(news.get("title"));
-        $("#newsModal .js-close-modal").on("click", function() {
-          return $("#newsModal").modal("hide");
-        });
         $("#newsModal").modal({
           keyboard: true,
           backdrop: true

@@ -2,7 +2,7 @@
   "name": "Plugin de IOL para Humanos",
   "version": "3",
   "permissions": [
-    "tabs", "http://*/*", "https://*/*"
+    "tabs", "http://iol2.itba.edu.ar/*", "https://iol2.itba.edu.ar/*"
   ],
   "content_scripts": [
     {

@@ -1,6 +1,10 @@
-:each item in items
+:if items.length > 0
+  :each item in items
+    %tr
+      %td.item-name
+        = item.text
+      %td.action
+        %a.btn.btn-mini.pull-right{ href: item.href, target: item.target || "_blank" } Ver
+:if items.length == 0
   %tr
-    %td
-      = item.text
-    %td.action
-      %a.btn.btn-mini{ href: item.href, target: item.target || "_blank" } Ver
+    %td.item-name= empty_message || "No hay elementos para mostrar"

@@ -14,7 +14,16 @@ IOL.Subjects.News.load = ()->
         subject = _.find subjects, (subj)-> subj.id == subject_id
         news_ = subject.get "news"
         news = _.find news_, (n)-> news_id == n.id
-        alert(news.get("content"));
+        $("#newsModal .modal-body").html(news.get("content"))
+        $("#newsModal .modal-title").html(news.get("title"))
+        $("#newsModal .js-close-modal").on "click", ()->
+          $("#newsModal").modal "hide"
+        $("#newsModal").modal 
+          keyboard: true
+          backdrop: true  
+        $("#newsModal").on "hidden", ()->
+          window.history.go -1 unless window.location.hash == "" or window.location.hash == "/"
+
 
 
     IOL.Subjects.News.Collection = Backbone.Collection.extend 
@@ -28,7 +37,7 @@ IOL.Subjects.News.load = ()->
           $item = $(item)
           matcher = $item.attr("href").match(/ID=([0-9]+)/)
           id = matcher[1]
-          title = $item.text()
+          title = $item.html()
           content = $item.parents(".ms-vb-title:first").next().html()
           new Backbone.Model {id: id, title: title, content : content }
 

@@ -336,20 +336,55 @@ document.getElementsByTagName("head")[0].appendChild(d);d.load("jStorage");a="{}
 
   IOL = window.IOL;
 
+  IOL.isOn = function() {
+    return $.jStorage.get("iol4humans-isOn");
+  };
+
+  IOL.setOn = function() {
+    return $.jStorage.set("iol4humans-isOn", true);
+  };
+
+  IOL.setOff = function() {
+    return $.jStorage.set("iol4humans-isOn", null);
+  };
+
+  IOL.setOnAndStart = function() {
+    IOL.setOn();
+    return IOL.start();
+  };
+
+  IOL.reload = function() {
+    IOL.setOff();
+    return window.location.reload();
+  };
+
+  IOL.start = function() {
+    var loader, rendered;
+    rendered = window.indexView({
+      path: IOL.basePath
+    });
+    document.write(rendered);
+    $("html").hide();
+    loader = function() {
+      return window.IOL.loaded();
+    };
+    return setTimeout(loader, 1000);
+  };
+
+  IOL.loadTurnOnButton = function() {
+    $("<a href='javascript:window.IOL.start();' \nclass='js-iol-load' style='color:white'>\nCargar IOL para Humanos</a><span> / <span>").insertBefore("#infoAlumno a:last");
+    return $("<a href='javascript:window.IOL.setOnAndStart();' \nclass='js-iol-load' style='color:white'>\nActivar siempre IOL para Humanos</a><span> / <span>").insertBefore("#infoAlumno a:last");
+  };
+
   IOL.basePath = window.baseLocation;
 
   if (!IOL.isLoaded) {
     head.js("" + IOL.basePath + "/views/index.haml.js", "" + IOL.basePath + "/views/subjects.haml.js", "" + IOL.basePath + "/views/myprofile.haml.js", "" + IOL.basePath + "/views/datalist.haml.js", function() {
-      var loader, rendered;
-      rendered = window.indexView({
-        path: IOL.basePath
-      });
-      document.write(rendered);
-      $("html").hide();
-      loader = function() {
-        return window.IOL.loaded();
-      };
-      return setTimeout(loader, 1000);
+      if (IOL.isOn()) {
+        return IOL.start();
+      } else {
+        return IOL.loadTurnOnButton();
+      }
     });
   } else {
     alert("IOL-Humanizer ya está cargado!");
@@ -466,7 +501,7 @@ document.getElementsByTagName("head")[0].appendChild(d);d.load("jStorage");a="{}
           $item = $(item);
           matcher = $item.attr("href").match(/ID=([0-9]+)/);
           id = matcher[1];
-          title = $item.html();
+          title = $item.text();
           content = $item.parents(".ms-vb-title:first").next().html();
           return new Backbone.Model({
             id: id,

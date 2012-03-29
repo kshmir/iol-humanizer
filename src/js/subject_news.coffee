@@ -25,7 +25,6 @@ IOL.Subjects.News.load = ()->
           window.history.go -1 unless window.location.hash == "" or window.location.hash == "/"
 
 
-
     IOL.Subjects.News.Collection = Backbone.Collection.extend 
       url: (subject)-> "http://iol2.itba.edu.ar/grado/#{subject.id}/Lists/Noticias_n/VistaNoticias.aspx"
 
@@ -37,7 +36,7 @@ IOL.Subjects.News.load = ()->
           $item = $(item)
           matcher = $item.attr("href").match(/ID=([0-9]+)/)
           id = matcher[1]
-          title = $item.html()
+          title = $item.text()
           content = $item.parents(".ms-vb-title:first").next().html()
           new Backbone.Model {id: id, title: title, content : content }
 

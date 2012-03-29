@@ -3,7 +3,7 @@
 Igual que vos, estamos cansados que IOL sea lento, no funcione con Google Chrome y no se centre en lo que necesita el alumno.
 Este plugin intenta aliviar eso.
 
-Dentro de este link se encuentra el plugin para chrome: https://github.com/kshmir/iol-humanizer/blob/gh-pages/extensions/chrome.crx
+Dentro de este link se encuentra el plugin para chrome: https://github.com/kshmir/iol-humanizer/raw/gh-pages/extensions/chrome.crx
 
 
 Por ahora, no hay extensiones para firefox/safari. Poniendo este link estando dentro de IOL permite saber cómo se va a ver un IOL2 version humana :)

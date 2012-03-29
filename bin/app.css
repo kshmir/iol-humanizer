@@ -4699,12 +4699,21 @@ a.accordion-toggle {
 #subjectsAccordion .subjectData {
   padding: 0 15px; }
 
+.navbar .right-buttons {
+  font-size: 14px;
+  margin-top: 11px; }
+
 .navbar .right-buttons a,
 .navbar .right-buttons a:hover,
 .navbar .right-buttons a:visited {
-  color: white;
-  font-size: 14px;
-  margin-top: 11px;
+  color: white; }
+
+.table.newsList td.action .btn,
+.table.filesList td.action .btn {
+  float: right; }
+
+span.spacer {
+  padding: 0 10px;
   font-weight: bold; }
 
 td.item-name {

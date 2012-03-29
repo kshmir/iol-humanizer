@@ -24,12 +24,12 @@
       .navbar-inner
         .container.nav-collapse 
           %a.brand{ href: "#"} IOL para Humanos
-          .right-buttons
-            %a.pull-right.backtoiol{ href: "http://twitter.com/kshmir" } By @kshmir
-            | 
-            %a.pull-right.backtoiol{ href: "http://kshmir.github.com/iol-humanizer/" } Sitio del Proyecto
-            |
-            %a.pull-right.backtoiol{ href: "javascript:IOL.reload();" } Volver a IOL
+          .right-buttons.pull-right
+            %a.backtoiol{ href: "http://twitter.com/kshmir" } By @kshmir
+            %span.spacer
+            %a.backtoiol{ href: "http://kshmir.github.com/iol-humanizer/" } Sitio del Proyecto
+            %span.spacer
+            %a.backtoiol{ href: "javascript:IOL.reload();" } Volver a IOL
     / Main container
     .container#main
       %section

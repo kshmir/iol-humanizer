@@ -1,0 +1,17 @@
+{
+  "name": "Plugin de IOL para Humanos",
+  "version": "3",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*.itba.edu.ar/*", "https://*.itba.edu.ar/*"],
+      "js": ["background.js"]
+    }
+  ],
+  "page_action": {
+      "name": "Click para activar IOL para Humanos"
+  },
+  "manifest_version": 3
+}

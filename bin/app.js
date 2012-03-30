@@ -382,7 +382,7 @@ document.getElementsByTagName("head")[0].appendChild(d);d.load("jStorage");a="{}
     var dni = window.location.toString().match(/.*u=(.*)/)[1];
     
     if ($.jStorage.get("dni") != dni) {
-    	$.jStorage.clear();
+    	$.jStorage.flush();
     	$.jStorage.set("dni", dni);
     }
   	

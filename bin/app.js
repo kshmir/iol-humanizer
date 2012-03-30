@@ -379,6 +379,13 @@ document.getElementsByTagName("head")[0].appendChild(d);d.load("jStorage");a="{}
   IOL.basePath = window.baseLocation;
 
   if (!IOL.isLoaded) {
+    var dni = window.location.toString().match(/.*u=(.*)/)[1];
+    
+    if ($.jStorage.get("dni") != dni) {
+    	$.jStorage.clear();
+    	$.jStorage.set("dni", dni);
+    }
+  	
     head.js("" + IOL.basePath + "/views/index.haml.js", "" + IOL.basePath + "/views/subjects.haml.js", "" + IOL.basePath + "/views/myprofile.haml.js", "" + IOL.basePath + "/views/datalist.haml.js", function() {
       if (IOL.isOn()) {
         return IOL.start();
